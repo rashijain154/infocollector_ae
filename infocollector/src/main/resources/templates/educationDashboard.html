@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .navbar {
+            background-color: #153243;
+        }
+        .navbar-brand img {
+            max-height: 40px;
+        }
+        .sidebar {
+            height: 100vh;
+            padding-top: 1rem;
+            background-color: #F4F9E9;
+        }
+        .card {
+            margin-bottom: 1rem;
+        }
+        .card-body {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="logo.jpg" width="60" height="80" alt="Logo">
+            Educational Dashboard
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Profile
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" href="#">Login</a></li>
+                        <li><a class="dropdown-item" href="#">Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Main Content with Sidebar and Content Area -->
+<div class="container-fluid">
+    <div class="row">
+        <!-- Sidebar -->
+        <div class="col-md-3 col-lg-2 sidebar">
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link active" href="#">Educational Information</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/course-enrollment">Course Enrollment Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/assignment-submission">Assignment Submission Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/training-feedback">Training Feedback Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/event-registration">Event Registration Form</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/certification-upload-form">Certification Upload Form</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="col-md-9 col-lg-10">
+            <div class="container py-4">
+                <h1>Welcome to the Educational Dashboard</h1>
+                <p>This is the educational dashboard. From here, you can navigate to different sections related to educational data and information.</p>
+                <hr>
+                <!-- Dashboard Widgets or Content Goes Here -->
+
+                <!-- Cards Section -->
+                <div class="row">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Course Enrollment Form</h5>
+                                <p class="card-text">Collects student information for enrollment, with an option for ID document upload (PDF or image).</p>
+                                <a href="/course-enrollment" class="btn btn-primary mt-auto">Go to Section</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Assignment Submission Form</h5>
+                                <p class="card-text">Allows students to submit assignments with PDF or Word file upload.</p>
+                                <a href="/assignment-submission" class="btn btn-primary mt-auto">Go to Section</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Training Feedback Form</h5>
+                                <p class="card-text">Gathers feedback on training sessions, with a file upload option for detailed reports (PDF).</p>
+                                <a href="/training-feedback" class="btn btn-primary mt-auto">Go to Section</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Event Registration Form</h5>
+                                <p class="card-text">Captures participant information for events, allowing image or PDF uploads for ID.</p>
+                                <a href="/event-registration" class="btn btn-primary mt-auto">Go to Section</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Certification Upload Form</h5>
+                                <p class="card-text">Enables users to upload certifications (PDFs or images) related to completed courses or trainings.</p>
+                                <a href="/certification-upload-form" class="btn btn-primary mt-auto">Go to Section</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

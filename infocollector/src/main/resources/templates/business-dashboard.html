@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Business Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .navbar {
+        background-color: #0A2472;
+    }
+    .navbar-brand img {
+        max-height: 40px;
+    }
+    .sidebar {
+        height: 100vh;
+        padding-top: 1rem;
+        background-color: #B4B8AB;
+    }
+    .card {
+        margin-bottom: 1rem;
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="logo.jpg" width="60" height="80" alt="Logo">
+      Business Dashboard
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content with Sidebar and Content Area -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 col-lg-2 sidebar">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Business Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/expense-report">Expense Report</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/invoice-submission">Invoice Submission Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/tax-form">Tax Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/employee-form">Employee Performance Form</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/asset-registration">Asset Registration Form</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="col-md-9 col-lg-10">
+      <div class="container py-4">
+        <h1>Welcome to the Business Dashboard</h1>
+        <p>This is the business dashboard. From here, you can navigate to different sections related to business data and financial information.</p>
+        <hr>
+        <!-- Dashboard Widgets or Content Goes Here -->
+
+        <!-- Cards Section -->
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Expense Report</h5>
+                <p class="card-text">View and manage your expense reports.</p>
+                <a href="/expense-report" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Invoice Submission Form</h5>
+                <p class="card-text">Allows users to submit invoice details, with file upload for the invoice as PDF or Excel files.</p>
+                <a href="/invoice-submission" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Tax Form</h5>
+                <p class="card-text">Collects tax-related information, allowing uploads of tax documents (PDFs or Excel).</p>
+                <a href="/tax-form" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Employee Performance Form</h5>
+                <p class="card-text">Records employee performance metrics with options to upload supporting documents (PDF).</p>
+                <a href="/employee-form" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Asset Registration Form</h5>
+                <p class="card-text">Users can register business assets with options to upload images, PDF reports, or Excel sheets of asset details.</p>
+                <a href="/asset-registration" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

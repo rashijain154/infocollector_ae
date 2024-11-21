@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Invoice Submission Forms</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-center">All Invoice Submission Forms</h2>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Invoice Amount</th>
+            <th>Invoice Number</th>
+            <th>Vendor Name</th>
+            <th>Invoice Date</th>
+            <th>Due Date</th>
+            <th>Payment Status</th>
+            <th>Invoice File</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="invoiceSubmissionForm : ${invoiceSubmissionForms}">
+            <td th:text="${invoiceSubmissionForm.id}"></td>
+            <td th:text="${invoiceSubmissionForm.invoiceAmount}"></td>
+            <td th:text="${invoiceSubmissionForm.invoiceNumber}"></td>
+            <td th:text="${invoiceSubmissionForm.vendorName}"></td>
+            <td th:text="${invoiceSubmissionForm.invoiceDate}"></td>
+            <td th:text="${invoiceSubmissionForm.dueDate}"></td>
+            <td th:text="${invoiceSubmissionForm.paymentStatus}"></td>
+            <td>
+              <div class="actions">
+                <a th:href="@{/invoice-submission/download-form-only/{id}(id=${invoiceSubmissionForm.id})}" class="btn btn-info">Download Form</a>
+                <a th:href="@{/invoice-submission/download-document/{id}(id=${invoiceSubmissionForm.id})}" class="btn btn-success">Download PDF</a>
+              </div>
+            </td>
+            <td>
+              <div class="actions">
+                <a th:href="@{/invoice-submission/edit/{id}(id=${invoiceSubmissionForm.id})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/invoice-submission/delete/{id}(id=${invoiceSubmissionForm.id})}" class="btn btn-danger">Delete</a>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

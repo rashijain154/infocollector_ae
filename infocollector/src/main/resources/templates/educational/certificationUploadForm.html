@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Certification Upload Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <h1>Certification Upload Form</h1>
+    <form th:action="@{/certification-upload-form/submit}" method="post" enctype="multipart/form-data">
+        <input type="hidden" th:value="${form.id}" name="id"/>
+        <div class="mb-3">
+            <label for="courseName" class="form-label">Course Name</label>
+            <input type="text" class="form-control" id="courseName" th:value="${form.courseName}" name="courseName" required>
+        </div>
+        <div class="mb-3">
+            <label for="completionDate" class="form-label">Completion Date</label>
+            <input type="date" class="form-control" id="completionDate" th:value="${form.completionDate}" name="completionDate" required>
+        </div>
+        <div class="mb-3">
+            <label for="certificationName" class="form-label">Certification Name</label>
+            <input type="text" class="form-control" id="certificationName" th:value="${form.certificationName}" name="certificationName" required>
+        </div>
+        <div class="mb-3">
+            <label for="issuingOrganization" class="form-label">Issuing Organization</label>
+            <input type="text" class="form-control" id="issuingOrganization" th:value="${form.issuingOrganization}" name="issuingOrganization" required>
+        </div>
+        <div class="mb-3">
+            <label for="validityStartDate" class="form-label">Validity Start Date</label>
+            <input type="date" class="form-control" id="validityStartDate" th:value="${form.validityStartDate}" name="validityStartDate" required>
+        </div>
+        <div class="mb-3">
+            <label for="validityEndDate" class="form-label">Validity End Date</label>
+            <input type="date" class="form-control" id="validityEndDate" th:value="${form.validityEndDate}" name="validityEndDate" required>
+        </div>
+        <div class="mb-3">
+            <label for="certification" class="form-label">Certification (PDF or Image)</label>
+            <input type="file" class="form-control" id="certification" name="certification" accept=".pdf,.jpg,.jpeg,.png" required>
+        </div>
+        <div class="mb-3">
+            <label for="userEmail" class="form-label">Your Email</label>
+            <input type="email" class="form-control" id="userEmail" name="userEmail" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

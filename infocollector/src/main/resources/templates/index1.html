@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .navbar {
+        background-color: #0A2472; /* Blue color */
+    }
+    .navbar-brand img {
+        max-height: 40px; /* Adjust logo size */
+    }
+    .sidebar {
+        height: 100vh;
+        padding-top: 1rem;
+        background-color: #EEF0EB;
+    }
+    .card {
+        margin-bottom: 1rem;
+    }
+    .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+    }
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img th:src="@{logo.jpg}" width="60" height="80"  alt="Logo">
+      My Dashboard
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Profile
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#">Login</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Content with Sidebar and Content Area -->
+<div class="container-fluid">
+  <div class="row">
+    <!-- Sidebar -->
+    <div class="col-md-3 col-lg-2 sidebar">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Personal Information Collection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Business and Financial Data Collection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Project and Task Management</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Educational and Training Data Collection</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/formBuilder">Form Creation</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="col-md-9 col-lg-10">
+      <div class="container py-4">
+        <h1>Welcome to the Dashboard</h1>
+        <p>This is your main dashboard area. Here you can manage your forms, view analytics, and access templates and settings.</p>
+        <hr>
+        <!-- Dashboard Widgets or Content Goes Here -->
+
+        <!-- Cards Section -->
+        <div class="row">
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Personal Information Collection</h5>
+                <p class="card-text">Manage personal data.</p>
+                <a href="/registration" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Business and Financial Data Collection</h5>
+                <p class="card-text">Handle business-related data.</p>
+                <a href="/business-dashboard" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Project and Task Management</h5>
+                <p class="card-text">Oversee projects and tasks.</p>
+                <a href="#" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="card h-100">
+              <div class="card-body">
+                <h5 class="card-title">Educational and Training Data Collection</h5>
+                <p class="card-text">Collect educational data.</p>
+                <a href="/educationDashboard" class="btn btn-primary mt-auto">Go to Section</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

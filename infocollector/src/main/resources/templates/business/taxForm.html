@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Tax Form Submission</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h1>Tax Form Submission</h1>
+  <form th:action="@{/tax-form/submit}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:value="${taxForm.id}" name="id"/>
+    <div class="mb-3">
+      <label for="taxYear" class="form-label">Tax Year</label>
+      <input type="number" class="form-control" id="taxYear" th:value="${taxForm.taxYear}" name="taxYear" required>
+    </div>
+    <div class="mb-3">
+      <label for="taxpayerName" class="form-label">Taxpayer Name</label>
+      <input type="text" class="form-control" id="taxpayerName" th:value="${taxForm.taxpayerName}" name="taxpayerName" required>
+    </div>
+    <div class="mb-3">
+      <label for="taxAmount" class="form-label">Tax Amount</label>
+      <input type="number" class="form-control" id="taxAmount" th:value="${taxForm.taxAmount}" name="taxAmount" required>
+    </div>
+    <div class="mb-3">
+      <label for="submissionDate" class="form-label">Submission Date</label>
+      <input type="date" class="form-control" id="submissionDate" th:value="${taxForm.submissionDate}" name="submissionDate" required>
+    </div>
+    <div class="mb-3">
+      <label for="approvalStatus" class="form-label">Approval Status</label>
+      <input type="text" class="form-control" id="approvalStatus" th:value="${taxForm.approvalStatus}" name="approvalStatus" required>
+    </div>
+    <div class="mb-3">
+      <label for="taxDocument" class="form-label">Tax Document (PDF or Excel)</label>
+      <input type="file" class="form-control" id="taxDocument" name="taxDocument" accept=".pdf,.xls,.xlsx" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

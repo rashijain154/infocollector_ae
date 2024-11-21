@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Tax Form Submissions</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-center">All Tax Form Submissions</h2>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tax Year</th>
+            <th>Taxpayer Name</th>
+            <th>Tax Amount</th>
+            <th>Submission Date</th>
+            <th>Approval Status</th>
+            <th>Tax Document</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="taxForm : ${taxForms}">
+            <td th:text="${taxForm.id}"></td>
+            <td th:text="${taxForm.taxYear}"></td>
+            <td th:text="${taxForm.taxpayerName}"></td>
+            <td th:text="${taxForm.taxAmount}"></td>
+            <td th:text="${taxForm.submissionDate}"></td>
+            <td th:text="${taxForm.approvalStatus}"></td>
+            <td>
+              <div class="actions">
+                <a th:href="@{/tax-form/download-form-only/{id}(id=${taxForm.id})}" class="btn btn-info">Download Form</a>
+                <a th:href="@{/tax-form/download-document/{id}(id=${taxForm.id})}" class="btn btn-success">Download PDF</a>
+              </div>
+            </td>
+            <td>
+              <a th:href="@{/tax-form/edit/{id}(id=${taxForm.id})}" class="btn btn-primary">Edit</a>
+              <a th:href="@{/tax-form/delete/{id}(id=${taxForm.id})}" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

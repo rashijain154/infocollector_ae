@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Invoice Submission Form</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h1>Invoice Submission Form</h1>
+  <form th:action="@{/invoice-submission/submit}" method="post" enctype="multipart/form-data">
+    <input type="hidden" th:value="${invoiceSubmissionForm.id}" name="id"/>
+    <div class="mb-3">
+      <label for="invoiceAmount" class="form-label">Invoice Amount</label>
+      <input type="number" class="form-control" id="invoiceAmount" th:value="${invoiceSubmissionForm.invoiceAmount}" name="invoiceAmount" required>
+    </div>
+    <div class="mb-3">
+      <label for="invoiceNumber" class="form-label">Invoice Number</label>
+      <input type="text" class="form-control" id="invoiceNumber" th:value="${invoiceSubmissionForm.invoiceNumber}" name="invoiceNumber" required>
+    </div>
+    <div class="mb-3">
+      <label for="vendorName" class="form-label">Vendor Name</label>
+      <input type="text" class="form-control" id="vendorName" th:value="${invoiceSubmissionForm.vendorName}" name="vendorName" required>
+    </div>
+    <div class="mb-3">
+      <label for="invoiceDate" class="form-label">Invoice Date</label>
+      <input type="date" class="form-control" id="invoiceDate" th:value="${invoiceSubmissionForm.invoiceDate}" name="invoiceDate" required>
+    </div>
+    <div class="mb-3">
+      <label for="dueDate" class="form-label">Due Date</label>
+      <input type="date" class="form-control" id="dueDate" th:value="${invoiceSubmissionForm.dueDate}" name="dueDate" required>
+    </div>
+    <div class="mb-3">
+      <label for="paymentStatus" class="form-label">Payment Status</label>
+      <input type="text" class="form-control" id="paymentStatus" th:value="${invoiceSubmissionForm.paymentStatus}" name="paymentStatus" required>
+    </div>
+    <div class="mb-3">
+      <label for="invoiceFile" class="form-label">Invoice File (PDF or Excel)</label>
+      <input type="file" class="form-control" id="invoiceFile" name="invoiceFile" accept=".pdf,.xls,.xlsx" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+  <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Certification Upload Forms</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-center">All Certification Upload Forms</h2>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Course Name</th>
+            <th>Completion Date</th>
+            <th>Certification Name</th>
+            <th>Issuing Organization</th>
+            <th>Validity Start Date</th>
+            <th>Validity End Date</th>
+            <th>User Email</th> <!-- New column for user email -->
+            <th>Certification Document</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="form : ${forms}">
+            <td th:text="${form.id}"></td>
+            <td th:text="${form.courseName}"></td>
+            <td th:text="${form.completionDate}"></td>
+            <td th:text="${form.certificationName}"></td>
+            <td th:text="${form.issuingOrganization}"></td>
+            <td th:text="${form.validityStartDate}"></td>
+            <td th:text="${form.validityEndDate}"></td>
+            <td th:text="${form.userEmail}"></td> <!-- Display user email -->
+            <td>
+              <div class="actions">
+                <a th:href="@{/certification-upload-form/download-document/{id}(id=${form.id})}" class="btn btn-info">Download Certification</a>
+                <a th:href="@{/certification-upload-form/download-form-only/{id}(id=${form.id})}" class="btn btn-success">Download Form</a>
+              </div>
+            </td>
+            <td>
+              <a th:href="@{/certification-upload-form/edit/{id}(id=${form.id})}" class="btn btn-primary">Edit</a>
+              <a th:href="@{/certification-upload-form/delete/{id}(id=${form.id})}" class="btn btn-danger">Delete</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

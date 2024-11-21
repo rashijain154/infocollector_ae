@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Expense Reports</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .actions {
+          display: flex;
+          gap: 10px; /* Adjust the gap as needed */
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="col-md-8 offset-md-2">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">All Expense Reports</h2>
+            </div>
+            <div class="card-body">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Expense Amount</th>
+                        <th>Category</th>
+                        <th>Description</th>
+                        <th>Date Incurred</th>
+                        <th>Payment Method</th>
+                        <th>Receipt</th>
+                        <th>Actions</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:each="expenseReportForm : ${expenseReportForms}">
+                        <td th:text="${expenseReportForm.id}"></td>
+                        <td th:text="${expenseReportForm.expenseAmount}"></td>
+                        <td th:text="${expenseReportForm.category}"></td>
+                        <td th:text="${expenseReportForm.description}"></td>
+                        <td th:text="${expenseReportForm.dateIncurred}"></td>
+                        <td th:text="${expenseReportForm.paymentMethod}"></td>
+                        <td>
+                            <div class="actions">
+                                <a th:href="@{/expense-report/download-form-only/{id}(id=${expenseReportForm.id})}" class="btn btn-info">Download Form</a>
+                                <a th:href="@{/expense-report/download-document/{id}(id=${expenseReportForm.id})}" class="btn btn-success">Download Receipt</a>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="actions">
+                                <a th:href="@{/expense-report/edit/{id}(id=${expenseReportForm.id})}" class="btn btn-primary">Edit</a>
+                                <a th:href="@{/expense-report/delete/{id}(id=${expenseReportForm.id})}" class="btn btn-danger">Delete</a>
+                            </div>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

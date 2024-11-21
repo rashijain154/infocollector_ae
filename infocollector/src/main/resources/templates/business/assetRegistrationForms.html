@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="ISO-8859-1">
+  <title>Asset Registration Forms</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .actions {
+      display: flex;
+      gap: 10px; /* Adjust the gap as needed */
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div class="card-header">
+        <h2 class="text-center">All Asset Registration Forms</h2>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>ID</th>
+            <th>Asset Name</th>
+            <th>Asset Description</th>
+            <th>Asset Document</th>
+            <th>Actions</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="assetRegistrationForm : ${assetRegistrationForms}">
+            <td th:text="${assetRegistrationForm.id}"></td>
+            <td th:text="${assetRegistrationForm.assetName}"></td>
+            <td th:text="${assetRegistrationForm.assetDescription}"></td>
+            <td>
+              <div class="actions">
+                <a th:href="@{/asset-registration/download-form-only/{id}(id=${assetRegistrationForm.id})}" class="btn btn-info">Download Form</a>
+                <a th:href="@{/asset-registration/download-document/{id}(id=${assetRegistrationForm.id})}" class="btn btn-success">Download PDF</a>
+              </div>
+            </td>
+            <td>
+              <div class="actions">
+                <a th:href="@{/asset-registration/edit/{id}(id=${assetRegistrationForm.id})}" class="btn btn-primary">Edit</a>
+                <a th:href="@{/asset-registration/delete/{id}(id=${assetRegistrationForm.id})}" class="btn btn-danger">Delete</a>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JavaScript Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
